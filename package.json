@@ -3,15 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android": "react-native run-android --no-packager",
+    "ios": "react-native run-ios --no-packager",
     "lint": "eslint .",
-    "start": "react-native start",
+    "start": "react-native webpack-start --port 8081",
+    "start:clean": "react-native webpack-start --port 8081 --reset-cache",
     "test": "jest"
   },
   "dependencies": {
+    "@callstack/repack": "^5.2.3",
+    "@module-federation/enhanced": "^2.0.1",
     "react": "18.3.1",
-    "react-native": "0.77.3"
+    "react-native": "0.77.3",
+    "webpack": "^5.105.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -24,6 +28,7 @@
     "@react-native/eslint-config": "0.77.3",
     "@react-native/metro-config": "0.77.3",
     "@react-native/typescript-config": "0.77.3",
+    "@swc/helpers": "^0.5.19",
     "@types/jest": "^29.5.13",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
